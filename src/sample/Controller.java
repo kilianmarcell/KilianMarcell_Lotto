@@ -9,6 +9,7 @@ import java.util.List;
 public class Controller {
     public List<Integer> sorsolLista = new ArrayList<Integer>();
     public boolean sorsolE;
+    public int randomSzam = 0;
 
     @FXML
     private Button btnSorsol;
@@ -17,5 +18,9 @@ public class Controller {
         for (int i = 1; i < 91; i++) {
             sorsolLista.add(i);
         }
+    }
+
+    public void randomSzamGeneralas() {
+        randomSzam = (int)(Math.random() * (sorsolLista.size() - 1)) + 1;
     }
 }
