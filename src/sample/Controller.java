@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Controller {
-    public List<Integer> sorsolLista = new ArrayList<>();
+    public List<Integer> veletlenLista = new ArrayList<>();
+    public List<Integer> sorsoltLista = new ArrayList<>();
     public boolean sorsolE;
     public int hanyadikSzam = 0;
     public int randomSzam = 0;
@@ -28,23 +29,25 @@ public class Controller {
     @FXML
     public Label otodikVeletlenSzam;
 
+    @FXML
+    public void initialize() {
+        feltoltLista();
+    }
+
     public void feltoltLista() {
         for (int i = 1; i < 91; i++) {
-            sorsolLista.add(i);
+            veletlenLista.add(i);
         }
     }
 
     public void randomSzamGeneralas() {
-        randomSzam = (int)(Math.random() * (sorsolLista.size() - 1)) + 1;
+        randomSzam = (int)(Math.random() * (veletlenLista.size() - 1)) + 1;
+        veletlenLista.remove(randomSzam);
+        sorsoltLista.add(veletlenLista.get(randomSzam));
     }
 
     @FXML
     public void sorsolRendez() {
-        if (hanyadikSzam < 4) {
-            hanyadikSzam++;
-        } else {
-            hanyadikSzam = 0;
-        }
         randomSzamGeneralas();
         switch (hanyadikSzam) {
             case 0:
@@ -62,6 +65,16 @@ public class Controller {
             case 4:
                 otodikVeletlenSzam.setText(randomSzam + "");
                 break;
+        }
+        if (hanyadikSzam < 4) {
+            hanyadikSzam++;
+        } else {
+            sorsolE = false;
+            btnSorsol.setText("Rendez");
+            hanyadikSzam = 0;
+        }
+        if (!sorsolE) {
+
         }
     }
 }
