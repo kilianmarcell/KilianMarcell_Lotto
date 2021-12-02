@@ -67,7 +67,6 @@ public class Controller {
                 break;
         }
         if (hanyadikSzam == 0) {
-            elsoVeletlenSzam.setText(randomSzam + "");
             masodikVeletlenSzam.setText("");
             harmadikVeletlenSzam.setText("");
             negyedikVeletlenSzam.setText("");
@@ -88,8 +87,9 @@ public class Controller {
             sorsoltLista.clear();
             veletlenLista.clear();
             feltoltLista();
-            hanyadikSzam = 0;
+            hanyadikSzam++;
             btnSorsol.setText("Sorsol");
+            hanyadikSzam = 0;
         }
     }
 }
