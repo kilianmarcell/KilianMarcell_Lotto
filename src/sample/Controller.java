@@ -9,10 +9,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class Controller {
-    public List<Integer> veletlenLista = new ArrayList<>();
-    public List<Integer> sorsoltLista = new ArrayList<>();
-    public int hanyadikSzam = 0;
-    public int randomSzam = 0;
+    private List<Integer> veletlenLista = new ArrayList<>();
+    private List<Integer> sorsoltLista = new ArrayList<>();
+    private int hanyadikSzam = 0;
+    private int randomSzam = 0;
 
     @FXML
     public Button btnSorsol;
@@ -42,6 +42,9 @@ public class Controller {
 
     public void randomSzamGeneralas() {
         randomSzam = (int)(Math.random() * (veletlenLista.size() - 1)) + 1;
+        if (sorsoltLista.contains(randomSzam)) {
+            randomSzamGeneralas();
+        }
         veletlenLista.remove(randomSzam - 1);
         sorsoltLista.add(randomSzam);
     }
