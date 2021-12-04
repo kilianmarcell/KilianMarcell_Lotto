@@ -47,37 +47,24 @@ public class Controller {
         }
         veletlenLista.remove(randomSzam - 1);
         sorsoltLista.add(randomSzam);
+        jelenGeneraltSzam.setText(randomSzam + "");
     }
 
     @FXML
     public void sorsolRendez() {
-        randomSzamGeneralas();
-        switch (hanyadikSzam) {
-            case 0:
-                elsoVeletlenSzam.setText(randomSzam + "");
-                break;
-            case 1:
-                masodikVeletlenSzam.setText(randomSzam + "");
-                break;
-            case 2:
-                harmadikVeletlenSzam.setText(randomSzam + "");
-                break;
-            case 3:
-                negyedikVeletlenSzam.setText(randomSzam + "");
-                break;
-            case 4:
-                otodikVeletlenSzam.setText(randomSzam + "");
-                break;
-        }
         if (hanyadikSzam == 0) {
+            randomSzamGeneralas();
             masodikVeletlenSzam.setText("");
             harmadikVeletlenSzam.setText("");
             negyedikVeletlenSzam.setText("");
             otodikVeletlenSzam.setText("");
             hanyadikSzam++;
         } else if (hanyadikSzam > 0 && hanyadikSzam < 4) {
+            randomSzamGeneralas();
             hanyadikSzam++;
         } else if (hanyadikSzam == 4) {
+            randomSzamGeneralas();
+            otodikVeletlenSzam.setText(randomSzam + "");
             btnSorsol.setText("Rendez");
             hanyadikSzam++;
         } else if (hanyadikSzam == 5) {
@@ -93,6 +80,21 @@ public class Controller {
             hanyadikSzam++;
             btnSorsol.setText("Sorsol");
             hanyadikSzam = 0;
+            jelenGeneraltSzam.setText("");
+        }
+        switch (hanyadikSzam) {
+            case 1:
+                elsoVeletlenSzam.setText(randomSzam + "");
+                break;
+            case 2:
+                masodikVeletlenSzam.setText(randomSzam + "");
+                break;
+            case 3:
+                harmadikVeletlenSzam.setText(randomSzam + "");
+                break;
+            case 4:
+                negyedikVeletlenSzam.setText(randomSzam + "");
+                break;
         }
     }
 }
