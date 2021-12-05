@@ -1,18 +1,23 @@
 package sample;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.TimerTask;
+import java.util.Timer;
 
 public class Controller {
     private List<Integer> veletlenLista = new ArrayList<>();
     private List<Integer> sorsoltLista = new ArrayList<>();
     private int hanyadikSzam = 0;
     private int randomSzam = 0;
+    private Timer timer;
 
     @FXML
     public Button btnSorsol;
@@ -50,8 +55,21 @@ public class Controller {
         jelenGeneraltSzam.setText(randomSzam + "");
     }
 
+    public void animacio() {
+        timer = new Timer();
+        TimerTask task = new TimerTask() {
+            @Override
+            public void run() {
+                Platform.runLater(() -> jelenGeneraltSzam.setText((int)(Math.random() * 100) + 1 + ""));
+            }
+        };
+        timer.schedule(task, 2000);
+    }
+
     @FXML
     public void sorsolRendez() {
+        //animacio();
+        timer.cancel();
         if (hanyadikSzam == 0) {
             randomSzamGeneralas();
             masodikVeletlenSzam.setText("");
