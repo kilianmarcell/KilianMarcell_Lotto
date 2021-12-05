@@ -3,11 +3,12 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
 <GridPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
-    <padding>
-        <Insets bottom="20" left="20" right="20" top="20" />
-    </padding>
+   <padding>
+      <Insets bottom="20" left="20" right="20" top="20" />
+   </padding>
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" />
@@ -20,8 +21,11 @@
       <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <Button fx:id="btnSorsol" maxWidth="130.0" minWidth="130.0" mnemonicParsing="false" onAction="#sorsolRendez" prefWidth="130.0" text="Sorsol" GridPane.columnIndex="0"/>
-      <Label fx:id="jelenGeneraltSzam" alignment="CENTER" contentDisplay="CENTER" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" textAlignment="CENTER" GridPane.columnIndex="3" />
+      <Button fx:id="btnSorsol" maxWidth="130.0" minWidth="130.0" mnemonicParsing="false" onAction="#sorsolRendez" prefWidth="130.0" text="Sorsol" GridPane.columnIndex="0" />
+      <Label fx:id="jelenGeneraltSzam" alignment="CENTER" contentDisplay="CENTER" maxWidth="100.0" minWidth="100.0" prefWidth="100.0" textAlignment="CENTER" GridPane.columnIndex="3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
       <Label fx:id="negyedikVeletlenSzam" alignment="CENTER" contentDisplay="CENTER" maxWidth="50.0" minHeight="30.0" minWidth="50.0" prefHeight="30.0" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
       <Label fx:id="harmadikVeletlenSzam" alignment="CENTER" contentDisplay="CENTER" maxWidth="50.0" minHeight="30.0" minWidth="50.0" prefHeight="30.0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
       <Label fx:id="masodikVeletlenSzam" alignment="CENTER" contentDisplay="CENTER" maxWidth="50.0" minHeight="30.0" minWidth="50.0" prefHeight="30.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
